@@ -1,0 +1,59 @@
+@import "variables";
+
+.footer {
+  background-color: $primary-color;
+  color: #fff;
+  padding: 2rem 0;
+
+  &__top {
+    margin-bottom: 2rem;
+  }
+
+  &__brand,
+  &__links,
+  &__social {
+    text-align: left;
+
+    &-title {
+      font-size: 1.5rem;
+      color: $secondary-color;
+      margin-bottom: 1rem;
+    }
+
+    &-description {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    &-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    &-item {
+      margin-bottom: 0.5rem;
+    }
+
+    &-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+
+  &__bottom {
+    text-align: center;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    &-text {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
