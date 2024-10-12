@@ -1,0 +1,11 @@
+<p>user-form works!</p>
+
+<h2>DATA BINDING COMPONENTS</h2>
+<input type="text">
+<label for="">{{ inputMessage }}</label>
+<button [disabled]="buttonStatus" (click)="buttonStatus = !buttonStatus">Disabled</button>
+<button (click)="buttonStatus = !buttonStatus"> Enable </button>
+
+<input type="text" (input)="inputEvent($event)" >
+
+<h3>{{ inputValue }}</h3>

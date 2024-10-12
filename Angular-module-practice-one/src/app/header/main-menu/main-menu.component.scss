@@ -1,0 +1,14 @@
+@import "variables";
+
+.menu-container{
+    &__nav-link{
+        color:$primary-color; 
+        font-weight: 500;
+        font-size: 1.2rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &__nav-link:hover {
+        color: $secondary-color;
+    }
+}
