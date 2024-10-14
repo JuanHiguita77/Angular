@@ -1,0 +1,56 @@
+<div class="container">
+    <h1 class="container__title">Task List</h1>
+
+    <div class="task" [ngClass]="{'task--completed': task.status === 'Completed'}">
+        <p [ngStyle]="{color: colorText}">{{ task.task }}</p>
+        <img src="task__icon" src="../assets/icons/completed.svg" alt="completed">
+
+        <section>
+            <!-- Bucles 
+                index,
+                count,
+                first,
+                last,
+                even,
+                odd
+
+                Si actualizamos un elemento se renderizan todos nuevamente, debemos evitarlo
+                usando trackBy: method
+            -->
+            <select class="task__status" [(ngModel)]="task.status" (change)="changeStatus()">
+                <option *ngFor="let status of LIST_OBJECT_STATES; let i = index; trackBy: trackByItem" [value]="status.value">
+                    {{ status.name }}
+                </option>
+            </select>
+
+            <select [(ngModel)]="task.priority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+        </section>
+    </div>
+
+    <!-- IF-ELSE -->
+    <!-- Solo se puede encadenar un else por ngIf -->
+
+    <div *ngIf="task.status === 'Completed'; else progress" class="div" style="width: 400px; height: 600px;">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9c2e9d59-ee54-490e-bf96-5497f587844f/dggnza3-17d5904b-f58e-4918-8cb8-2606a436e428.png/v1/fit/w_828,h_476,q_70,strp/anime_girl_4k_wallpaper_by_cyberxyt_dggnza3-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjI0MCIsInBhdGgiOiJcL2ZcLzljMmU5ZDU5LWVlNTQtNDkwZS1iZjk2LTU0OTdmNTg3ODQ0ZlwvZGdnbnphMy0xN2Q1OTA0Yi1mNThlLTQ5MTgtOGNiOC0yNjA2YTQzNmU0MjgucG5nIiwid2lkdGgiOiI8PTM5MDQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.4rQCljvkZE9rOUSZG4zRzJZx3Kvcn7195TnjyJ3bc4I" alt="">    
+    </div>
+
+    <ng-template #progress> 
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d53435a6-b91e-469c-98f4-9215f6ba3dba/dg5z4ct-10b9f025-0208-4556-904c-3c6e4c3944e8.png/v1/fit/w_828,h_414,q_70,strp/anime_synth_3_by_softwmaster_dg5z4ct-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q1MzQzNWE2LWI5MWUtNDY5Yy05OGY0LTkyMTVmNmJhM2RiYVwvZGc1ejRjdC0xMGI5ZjAyNS0wMjA4LTQ1NTYtOTA0Yy0zYzZlNGMzOTQ0ZTgucG5nIiwiaGVpZ2h0IjoiPD02NDAiLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiJcL3dtXC9kNTM0MzVhNi1iOTFlLTQ2OWMtOThmNC05MjE1ZjZiYTNkYmFcL3NvZnR3bWFzdGVyLTQucG5nIiwib3BhY2l0eSI6OTUsInByb3BvcnRpb25zIjowLjQ1LCJncmF2aXR5IjoiY2VudGVyIn19.NvQPSAQibPO4ERYDo4d6qayFswSjXHFIlixGJPNIHHg">
+    </ng-template> 
+
+    <!-- Solo se puede encadenar un else por ngIf -->
+    <ng-template #pending> 
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d38a0ddb-8e92-47b2-a372-7c8f047df7fa/dhvnsu0-165e8581-8040-4683-b336-cc86409bbf20.png/v1/fit/w_828,h_552,q_70,strp/cybergirl_by_myruai_dhvnsu0-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2QzOGEwZGRiLThlOTItNDdiMi1hMzcyLTdjOGYwNDdkZjdmYVwvZGh2bnN1MC0xNjVlODU4MS04MDQwLTQ2ODMtYjMzNi1jYzg2NDA5YmJmMjAucG5nIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.EOytHs3xKflfbu4uXqq7YywC7BXD4C7rS8ZM1TJld_s">
+    </ng-template> 
+
+    <!-- ngSwitch -->
+    <ng-container [ngSwitch]="task.priority">
+        <p [ngStyle]="{color: colorText}" *ngSwitchDefault>We need this fast!!</p>
+        <p [ngStyle]="{color: colorText}" *ngSwitchCase="'Medium'">Normal</p>
+        <p [ngStyle]="{color: colorText}" *ngSwitchCase="'Low'">You have time</p>
+    </ng-container>
+</div>
