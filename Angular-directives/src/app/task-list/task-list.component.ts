@@ -29,6 +29,6 @@ export class TaskListComponent {
   }
 
   trackByItem(index: number, item: { name: string; value: string }){
-    return item.value; //valor unico o identificador
+    return item.value; //valor unico o identificador, reemplazado por el track en nueva version
   }
 }
