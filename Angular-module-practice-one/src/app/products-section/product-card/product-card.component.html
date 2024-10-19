@@ -1,31 +1,14 @@
-<div class="cards-container d-flex justify-content-around text-center">
+<div class="cards-container d-flex flex-wrap justify-content-around text-center">
+  @for (product of products; track $index) 
+  {
     <div class="cards-container__card card p-3">
-        <img src="assets/images/cards/card-1.jpg" class="card-img-top cards-container__card-img" alt="...">
+        <img [src]="product.image" class="card-img-top cards-container__card-img" alt="...">
 
         <div class="card-body">
-          <h6 class="card-title cards-container__card__card-title">RADIANCE GLOWN CERUM <span>40.00$</span> </h6>
+          <h6 class="card-title cards-container__card__card-title">{{ product.title | uppercase}} <span>{{ product.price | currency : 'COP' : 'symbol' : '' : 'es-CO' }}</span> </h6>
           
-          <a href="#" class="cards-container__card__card-button btn">ADD TO CART</a>
+          <a [href]="product.link" class="cards-container__card__card-button btn">ADD TO CART</a>
         </div>
     </div>
-
-    <div class="cards-container__card card p-3">
-        <img src="assets/images/cards/card-2.jpg" class="card-img-top cards-container__card-img" alt="...">
-        
-        <div class="card-body">
-          <h6 class="card-title cards-container__card__card-title">RADIANCE GLOWN CERUM <span>40.00$</span> </h6>
-          
-          <a href="#" class="cards-container__card__card-button btn">ADD TO CART</a>
-        </div>
-    </div>
-
-    <div class="cards-container__card card p-3">
-        <img src="assets/images/cards/card-3.jpg" class="card-img-top cards-container__card-img" alt="...">
-        
-        <div class="card-body">
-          <h6 class="card-title cards-container__card__card-title">RADIANCE GLOWN CERUM <span>40.00$</span> </h6>
-          
-          <a href="#" class="cards-container__card__card-button btn">ADD TO CART</a>
-        </div>
-    </div>
+  }@empty { <h3> NO PRODUCTS FOUND! </h3> }
 </div>

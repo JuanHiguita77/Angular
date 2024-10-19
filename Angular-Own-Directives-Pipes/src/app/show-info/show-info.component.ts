@@ -1,4 +1,4 @@
-import { CurrencyPipe, DatePipe, DecimalPipe, LowerCasePipe, NumberSymbol, UpperCasePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe, DecimalPipe, LowerCasePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
