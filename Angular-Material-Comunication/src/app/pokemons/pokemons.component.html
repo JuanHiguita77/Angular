@@ -4,7 +4,8 @@
     <mat-nav-list>
         @for (pokemon of pokemons; track $index) 
         {
-            <mat-list-item>
+            <!-- Send the pokemon clicked -->
+            <mat-list-item (click)="clickPokemon(pokemon)">
                 <div class="pokemon">
                     <img class="pokemon_pokeball" src="assets/pokebola.png">
                     <span>{{ pokemon.name }}</span>
@@ -15,4 +16,8 @@
             <h2>No more pokemons!!</h2>
         }
     </mat-nav-list>
+
+    <!-- pokemon: Son Variable --- dad variable pokemon saved  -->   
+                                                <!-- Personal Event: $event: received data from the event -->    
+    <app-pokemon [pokemon]="pokemonSelected" (deletePokemon)="deletePokemon($event)"/>
 </div>
