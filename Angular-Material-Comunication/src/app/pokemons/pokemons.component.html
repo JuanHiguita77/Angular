@@ -1,0 +1,18 @@
+<button mat-raised-button color="primary" (click)="clickRestore()"> List Restore </button>
+
+<div class="container">
+    <mat-nav-list>
+        @for (pokemon of pokemons; track $index) 
+        {
+            <mat-list-item>
+                <div class="pokemon">
+                    <img class="pokemon_pokeball" src="assets/pokebola.png">
+                    <span>{{ pokemon.name }}</span>
+                </div>
+            </mat-list-item>
+        }@empty 
+        {
+            <h2>No more pokemons!!</h2>
+        }
+    </mat-nav-list>
+</div>
