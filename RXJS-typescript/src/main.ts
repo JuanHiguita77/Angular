@@ -3,6 +3,8 @@ import './style.css'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { ishop, ishopCop } from './observables/ishop-cop'
+import { coldSubscriptions } from './observables/cold-observable'
+import { hotSuscription } from './observables/hot-observable'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -66,3 +68,7 @@ setTimeout(() => {
   console.log('Canceling subcription from subscriber');
   subcription.unsubscribe()
 }, 4000)
+
+coldSubscriptions()
+
+hotSuscription()
